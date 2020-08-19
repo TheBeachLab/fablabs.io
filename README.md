@@ -22,34 +22,31 @@ If you are a Fab labs entusiast and/or you would like to contribute to the proje
 1. Install missing gems with `bundle install`
 
 1. Install and configure `postgresql`
+	- `sudo -iu postgres`
+	- `initdb -D /var/lib/postgres/data`
+	- `createuser --superuser unix` you must do it for your username, in my case `unix`
 
 1. `rake db:setup` <- Fails, will look into it later
 
 ```bash
-[unix ~/Repositories/Fab/fablabs.io]$ rake db:setup
-/usr/lib/ruby/gems/2.7.0/gems/json-1.8.6/lib/json/common.rb:155: warning: Using the last argument as keyword parameters is deprecated
-/usr/lib/ruby/gems/2.7.0/gems/json-1.8.6/lib/json/common.rb:155: warning: Using the last argument as keyword parameters is deprecated
-/usr/lib/ruby/gems/2.7.0/gems/json-1.8.6/lib/json/common.rb:155: warning: Using the last argument as keyword parameters is deprecated
-/usr/lib/ruby/gems/2.7.0/gems/faraday-0.17.0/lib/faraday/options.rb:166: warning: Capturing the given block using Proc.new is deprecated; use `&block` instead
-/usr/lib/ruby/gems/2.7.0/gems/faraday-0.17.0/lib/faraday/options.rb:166: warning: Capturing the given block using Proc.new is deprecated; use `&block` instead
-/usr/lib/ruby/gems/2.7.0/gems/faraday-0.17.0/lib/faraday/options.rb:166: warning: Capturing the given block using Proc.new is deprecated; use `&block` instead
-/usr/lib/ruby/gems/2.7.0/gems/faraday-0.17.0/lib/faraday/options.rb:166: warning: Capturing the given block using Proc.new is deprecated; use `&block` instead
-/usr/lib/ruby/gems/2.7.0/gems/faraday-0.17.0/lib/faraday/options.rb:166: warning: Capturing the given block using Proc.new is deprecated; use `&block` instead
-/usr/lib/ruby/gems/2.7.0/gems/mime-types-3.3/lib/mime/types/logger.rb:30: warning: `_1' is reserved for numbered parameter; consider another name
-/usr/lib/ruby/gems/2.7.0/gems/mime-types-3.3/lib/mime/types/logger.rb:30: warning: `_2' is reserved for numbered parameter; consider another name
-/usr/lib/ruby/gems/2.7.0/gems/mime-types-3.3/lib/mime/types/logger.rb:30: warning: `_3' is reserved for numbered parameter; consider another name
-/usr/lib/ruby/gems/2.7.0/gems/activerecord-5.1.7/lib/active_record/type.rb:25: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
-/usr/lib/ruby/gems/2.7.0/gems/activerecord-5.1.7/lib/active_record/type/adapter_specific_registry.rb:7: warning: The called method `add_modifier' is defined here
-FATAL:  role "unix" does not exist
-Couldn't create 'fablabs_develop' database. Please check your configuration.
 rake aborted!
-ActiveRecord::NoDatabaseError: FATAL:  role "unix" does not exist
-
+Redis::CannotConnectError: Error connecting to Redis on localhost:6379 (Errno::ECONNREFUSED)
+/home/unix/Repositories/Fab/fablabs.io/app/models/user.rb:221:in `async_discourse_sync'
+/home/unix/Repositories/Fab/fablabs.io/app/models/user.rb:234:in `discourse_sync_if_needed'
+/home/unix/Repositories/Fab/fablabs.io/db/seeds.rb:16:in `<top (required)>'
 
 Caused by:
-PG::ConnectionBad: FATAL:  role "unix" does not exist
+Errno::ECONNREFUSED: Connection refused - connect(2) for 127.0.0.1:6379
+/home/unix/Repositories/Fab/fablabs.io/app/models/user.rb:221:in `async_discourse_sync'
+/home/unix/Repositories/Fab/fablabs.io/app/models/user.rb:234:in `discourse_sync_if_needed'
+/home/unix/Repositories/Fab/fablabs.io/db/seeds.rb:16:in `<top (required)>'
 
-Tasks: TOP => db:setup => db:schema:load_if_ruby => db:create
+Caused by:
+IO::EINPROGRESSWaitWritable: Operation now in progress - connect(2) would block
+/home/unix/Repositories/Fab/fablabs.io/app/models/user.rb:221:in `async_discourse_sync'
+/home/unix/Repositories/Fab/fablabs.io/app/models/user.rb:234:in `discourse_sync_if_needed'
+/home/unix/Repositories/Fab/fablabs.io/db/seeds.rb:16:in `<top (required)>'
+Tasks: TOP => db:setup => db:seed
 (See full trace by running task with --trace)
 ```
 
