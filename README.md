@@ -27,29 +27,9 @@ If you are a Fab labs entusiast and/or you would like to contribute to the proje
 	- `systemctl start postgresql.service` and `systemctl enable postgresql.service`
 	- `createuser --superuser unix` you must do it for your username, in my case `unix`
 
-1. `rake db:setup` <- Fails, will look into it later
+1. Install package `redis` and start/enable `redis.service`
 
-```bash
-rake aborted!
-Redis::CannotConnectError: Error connecting to Redis on localhost:6379 (Errno::ECONNREFUSED)
-/home/unix/Repositories/Fab/fablabs.io/app/models/user.rb:221:in `async_discourse_sync'
-/home/unix/Repositories/Fab/fablabs.io/app/models/user.rb:234:in `discourse_sync_if_needed'
-/home/unix/Repositories/Fab/fablabs.io/db/seeds.rb:16:in `<top (required)>'
-
-Caused by:
-Errno::ECONNREFUSED: Connection refused - connect(2) for 127.0.0.1:6379
-/home/unix/Repositories/Fab/fablabs.io/app/models/user.rb:221:in `async_discourse_sync'
-/home/unix/Repositories/Fab/fablabs.io/app/models/user.rb:234:in `discourse_sync_if_needed'
-/home/unix/Repositories/Fab/fablabs.io/db/seeds.rb:16:in `<top (required)>'
-
-Caused by:
-IO::EINPROGRESSWaitWritable: Operation now in progress - connect(2) would block
-/home/unix/Repositories/Fab/fablabs.io/app/models/user.rb:221:in `async_discourse_sync'
-/home/unix/Repositories/Fab/fablabs.io/app/models/user.rb:234:in `discourse_sync_if_needed'
-/home/unix/Repositories/Fab/fablabs.io/db/seeds.rb:16:in `<top (required)>'
-Tasks: TOP => db:setup => db:seed
-(See full trace by running task with --trace)
-```
+1. `rake db:setup`
 
 1. `rails s`
 
