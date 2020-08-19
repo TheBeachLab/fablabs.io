@@ -17,7 +17,31 @@ If you are a Fab labs entusiast and/or you would like to contribute to the proje
 
 1. `npm i`
 
-1. `rake db:setup`
+1. Install `ruby-bundler`
+
+1. Install missing gems with `bundle install`
+
+1. `rake db:setup` <- Fails, will look into it later
+
+```bash
+[unix ~/Repositories/Fab/fablabs.io]$ rake db:setup
+/usr/lib/ruby/gems/2.7.0/gems/json-1.8.6/lib/json/common.rb:155: warning: Using the last argument as keyword parameters is deprecated
+/usr/lib/ruby/gems/2.7.0/gems/json-1.8.6/lib/json/common.rb:155: warning: Using the last argument as keyword parameters is deprecated
+/usr/lib/ruby/gems/2.7.0/gems/json-1.8.6/lib/json/common.rb:155: warning: Using the last argument as keyword parameters is deprecated
+/usr/lib/ruby/gems/2.7.0/gems/faraday-0.17.0/lib/faraday/options.rb:166: warning: Capturing the given block using Proc.new is deprecated; use `&block` instead
+/usr/lib/ruby/gems/2.7.0/gems/faraday-0.17.0/lib/faraday/options.rb:166: warning: Capturing the given block using Proc.new is deprecated; use `&block` instead
+/usr/lib/ruby/gems/2.7.0/gems/faraday-0.17.0/lib/faraday/options.rb:166: warning: Capturing the given block using Proc.new is deprecated; use `&block` instead
+/usr/lib/ruby/gems/2.7.0/gems/faraday-0.17.0/lib/faraday/options.rb:166: warning: Capturing the given block using Proc.new is deprecated; use `&block` instead
+/usr/lib/ruby/gems/2.7.0/gems/faraday-0.17.0/lib/faraday/options.rb:166: warning: Capturing the given block using Proc.new is deprecated; use `&block` instead
+/usr/lib/ruby/gems/2.7.0/gems/mime-types-3.3/lib/mime/types/logger.rb:30: warning: `_1' is reserved for numbered parameter; consider another name
+/usr/lib/ruby/gems/2.7.0/gems/mime-types-3.3/lib/mime/types/logger.rb:30: warning: `_2' is reserved for numbered parameter; consider another name
+/usr/lib/ruby/gems/2.7.0/gems/mime-types-3.3/lib/mime/types/logger.rb:30: warning: `_3' is reserved for numbered parameter; consider another name
+rake aborted!
+LoadError: cannot load such file -- irb
+/home/unix/Repositories/Fab/fablabs.io/config/application.rb:8:in `<top (required)>'
+/home/unix/Repositories/Fab/fablabs.io/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+```
 
 1. `rails s`
 
