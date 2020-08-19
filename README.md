@@ -21,9 +21,10 @@ If you are a Fab labs entusiast and/or you would like to contribute to the proje
 
 1. Install missing gems with `bundle install`
 
-1. Install and configure `postgresql`
+1. Install and configure `postgresql` (arch Linux steps)
 	- `sudo -iu postgres`
 	- `initdb -D /var/lib/postgres/data`
+	- `systemctl start postgresql.service` and `systemctl enable postgresql.service`
 	- `createuser --superuser unix` you must do it for your username, in my case `unix`
 
 1. `rake db:setup` <- Fails, will look into it later
