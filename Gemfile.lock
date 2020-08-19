@@ -255,7 +255,10 @@ GEM
       railties (>= 5.0, < 6.1)
       responders (>= 2, < 4)
     interception (0.5)
+    io-console (0.5.6)
     ipaddress (0.8.3)
+    irb (1.2.4)
+      reline (>= 0.0.1)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
     jquery-rails (4.3.5)
@@ -429,6 +432,8 @@ GEM
     redis-store (1.8.1)
       redis (>= 4, < 5)
     regexp_parser (1.7.1)
+    reline (0.1.4)
+      io-console (~> 0.5)
     request_store (1.4.1)
       rack (>= 1.4)
     responders (3.0.0)
@@ -603,6 +608,7 @@ DEPENDENCIES
   hpricot
   http_accept_language
   inherited_resources
+  irb
   jbuilder
   jquery-rails
   kaminari

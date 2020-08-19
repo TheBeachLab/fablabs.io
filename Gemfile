@@ -78,6 +78,7 @@ gem 'timezone'#, '~> 1.0'
 gem 'trumbowyg_rails'#, git: 'https://github.com/TikiTDO/trumbowyg_rails.git'
 gem 'twitter'
 gem 'uglifier'#, '>= 1.3.0'
+gem 'irb' # arch
 
 gem "paperclip"#, "~> 4.2"
 # For paperclip/refile we need:
