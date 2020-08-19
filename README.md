@@ -21,6 +21,8 @@ If you are a Fab labs entusiast and/or you would like to contribute to the proje
 
 1. Install missing gems with `bundle install`
 
+1. Install and configure `postgresql`
+
 1. `rake db:setup` <- Fails, will look into it later
 
 ```bash
@@ -38,14 +40,14 @@ If you are a Fab labs entusiast and/or you would like to contribute to the proje
 /usr/lib/ruby/gems/2.7.0/gems/mime-types-3.3/lib/mime/types/logger.rb:30: warning: `_3' is reserved for numbered parameter; consider another name
 /usr/lib/ruby/gems/2.7.0/gems/activerecord-5.1.7/lib/active_record/type.rb:25: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
 /usr/lib/ruby/gems/2.7.0/gems/activerecord-5.1.7/lib/active_record/type/adapter_specific_registry.rb:7: warning: The called method `add_modifier' is defined here
-could not connect to server: No such file or directory
-	Is the server running locally and accepting
-	connections on Unix domain socket "/run/postgresql/.s.PGSQL.5432"?
+FATAL:  role "unix" does not exist
 Couldn't create 'fablabs_develop' database. Please check your configuration.
 rake aborted!
-PG::ConnectionBad: could not connect to server: No such file or directory
-	Is the server running locally and accepting
-	connections on Unix domain socket "/run/postgresql/.s.PGSQL.5432"?
+ActiveRecord::NoDatabaseError: FATAL:  role "unix" does not exist
+
+
+Caused by:
+PG::ConnectionBad: FATAL:  role "unix" does not exist
 
 Tasks: TOP => db:setup => db:schema:load_if_ruby => db:create
 (See full trace by running task with --trace)
